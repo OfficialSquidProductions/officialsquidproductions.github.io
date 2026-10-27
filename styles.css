@@ -1,0 +1,93 @@
+@font-face {
+  font-family: Pompiere;
+  src: url("assets/pompiere.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html { color-scheme: light; background: #fff; }
+body {
+  margin: 0;
+  padding: 48px 24px 40px;
+  color: #000;
+  font-family: Pompiere, "Arial Narrow", sans-serif;
+  text-align: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.banner {
+  display: block;
+  width: 498px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background: #000;
+}
+.tools {
+  display: grid;
+  grid-template-columns: repeat(4, 215px);
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 100%;
+}
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--tool-color);
+  text-decoration: none;
+  border-radius: 3px;
+}
+.production-desk { --tool-color: #ef002b; }
+.scenic { --tool-color: #073894; }
+.script-call { --tool-color: #8427c9; }
+.shot-reporter { --tool-color: #2ca32a; }
+.tool-name {
+  display: block;
+  white-space: nowrap;
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 600;
+  transform: scale(.8, .88);
+}
+.tool-mark {
+  display: block;
+  flex-shrink: 0;
+  width: 147px;
+  height: 147px;
+  margin-top: -8px;
+  background: currentColor;
+  -webkit-mask: url("assets/sp-green.png") center / contain no-repeat;
+  mask: url("assets/sp-green.png") center / contain no-repeat;
+}
+.tool:hover .tool-name { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.tool:focus-visible { outline: 3px solid #000; outline-offset: 8px; }
+footer { margin: 60px auto 0; }
+footer p { margin: 0; font-size: 24px; line-height: 30px; font-weight: 600; transform: scale(.77, .9); }
+
+@media (max-width: 940px) {
+  .tools { grid-template-columns: repeat(2, minmax(0, 240px)); gap: 30px 24px; margin-top: 22px; }
+  .tool-name { font-size: 54px; line-height: 60px; }
+  footer { margin-top: 48px; }
+}
+@media (max-width: 540px) {
+  body { padding: 28px 18px 32px; }
+  .tools { gap: 28px 12px; }
+  .tool-name { font-size: clamp(30px, 8vw, 43px); line-height: 50px; }
+  .tool-mark { width: 126px; height: 126px; margin-top: -2px; }
+  footer p { font-size: 21px; line-height: 28px; transform: none; font-weight: 400; }
+}
+@media (max-width: 319px) {
+  .tools { grid-template-columns: minmax(0, 240px); }
+}
